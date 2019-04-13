@@ -24,12 +24,7 @@ class DroarViewController: UITableViewController {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
         label.textAlignment = .center
         label.autoresizingMask = [.flexibleWidth]
-        let attachment = NSTextAttachment()
-        attachment.image = UIImage(named: "Droar_icon", in: Bundle.podBundle, compatibleWith: nil)
-        attachment.bounds = CGRect(x: 0, y: -8, width: 40, height: 40)
-        let attributedString = NSMutableAttributedString(attributedString: NSAttributedString(attachment: attachment))
-        attributedString.append(NSAttributedString(string: " DROAR", attributes: [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: UIColor.white]))
-        label.attributedText = attributedString
+        label.attributedText = NSAttributedString(string: "DEBUG", attributes: [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: UIColor.white])
         navigationItem.titleView = label
         
         navigationController?.navigationBar.barStyle = UIBarStyle.blackOpaque
@@ -46,7 +41,7 @@ class DroarViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return KnobManager.sharedInstance.visibleSections[indexPath.section].droarKnobCellForIndex(index: indexPath.row, tableView: tableView) as! UITableViewCell
+        return KnobManager.sharedInstance.visibleSections[indexPath.section].droarKnobCellForIndex(index: indexPath.row, tableView: tableView) as UITableViewCell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

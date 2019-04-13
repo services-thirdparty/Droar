@@ -13,8 +13,7 @@ import Foundation
     case deviceInfo = 1
     case processInfo = 2
     case reporting = 3
-    case myriad = 4
-    internal static let defaultValues: [DefaultKnobType] = [.buildInfo, .deviceInfo, .processInfo, .reporting, .myriad]
+    internal static let defaultValues: [DefaultKnobType] = [.buildInfo, .deviceInfo, .processInfo, .reporting]
 }
 
 public class DroarKnobSection {
@@ -99,7 +98,6 @@ internal class KnobManager {
             case .deviceInfo: defaultKnobs.append(DeviceInfoKnob())
             case .processInfo: defaultKnobs.append(ProcessInfoKnob())
             case .reporting: defaultKnobs.append(ReportingKnob())
-            case .myriad: defaultKnobs.append(MyriadKnob())
             }
         }
         
