@@ -83,12 +83,18 @@ internal extension Droar {
     
     @objc static func handleReceivedWindowDidBecomeKeyNotification(notification:NSNotification) {
         if let recognizer = gestureRecognizer {
-            recognizer.view?.removeGestureRecognizer(recognizer)
             
             if let window = notification.object as? UIWindow {
-                window.addGestureRecognizer(recognizer)
+                if window.hitTest(window.center, with: nil) != nil {
+                    recognizer.view?.removeGestureRecognizer(recognizer)
+                    window.addGestureRecognizer(recognizer)
+                }
             } else {
-                loadKeyWindow()?.addGestureRecognizer(recognizer)
+                guard let window = loadKeyWindow() else { return }
+                if window.hitTest(window.center, with: nil) != nil {
+                    recognizer.view?.removeGestureRecognizer(recognizer)
+                    window.addGestureRecognizer(recognizer)
+                }
             }
         }
     }
