@@ -12,8 +12,8 @@ import Foundation
     case buildInfo = 0
     case deviceInfo = 1
     case processInfo = 2
-    case reporting = 3
-    internal static let defaultValues: [DefaultKnobType] = [.buildInfo, .deviceInfo, .processInfo, .reporting]
+//    case reporting = 3
+    internal static let defaultValues: [DefaultKnobType] = [.buildInfo, .deviceInfo, .processInfo]
 }
 
 public class DroarKnobSection {
@@ -97,7 +97,7 @@ internal class KnobManager {
             case .buildInfo: defaultKnobs.append(BuildInfoKnob())
             case .deviceInfo: defaultKnobs.append(DeviceInfoKnob())
             case .processInfo: defaultKnobs.append(ProcessInfoKnob())
-            case .reporting: defaultKnobs.append(ReportingKnob())
+//            case .reporting: defaultKnobs.append(ReportingKnob())
             }
         }
         
